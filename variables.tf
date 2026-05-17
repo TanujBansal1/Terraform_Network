@@ -1,23 +1,39 @@
 variable "aws_region" {
-  description = "AWS Region "
+  description = "AWS region"
   type        = string
 }
 
 variable "resource_prefix" {
-  description = "Prefix values for resource"
+  description = "Prefix for resource name"
   type        = string
 }
 
-variable "vpc_cidr" {
-  description = "CIDR range for VPC"
+variable "vpc_name" {
+  description = "Tag of pre created VPC"
   type        = string
 }
 
-variable "public_subnets" {
-  description = "Map of Public Subnets, their AZ and CIDR"
-  type = map(object({
-    az         = string
-    cidr_block = string
-    suffix     = string
-  }))
+variable "security_group" {
+  description = "Tag of pre created security group"
+  type        = string
+}
+
+variable "instane_type" {
+  description = "EC2 instance type to launch"
+  type        = string
+}
+
+variable "ami_id" {
+  description = "AMI id for instance"
+  type        = string
+}
+
+variable "ssh_key" {
+  description = "Public SSH key "
+  type        = string
+}
+
+variable "common_tags" {
+  description = "Common tags for resources"
+  type        = map(string)
 }

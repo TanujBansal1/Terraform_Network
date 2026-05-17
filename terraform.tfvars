@@ -1,21 +1,11 @@
 aws_region      = "eu-west-1"
-resource_prefix = "cmtr-sghaq6oo-01"
-vpc_cidr        = "10.10.0.0/16"
+resource_prefix = "cmtr-sghaq6oo"
+vpc_name        = "cmtr-sghaq6oo-vpc"
+security_group  = "cmtr-sghaq6oo-sg"
+instane_type    = "t2.micro"
+ami_id          = "ami-0c13c2049f369d641"
 
-public_subnets = {
-  "a" = {
-    az         = "eu-west-1a"
-    cidr_block = "10.10.1.0/24"
-    suffix     = "a"
-  }
-  "b" = {
-    az         = "eu-west-1b"
-    cidr_block = "10.10.3.0/24"
-    suffix     = "b"
-  }
-  "c" = {
-    az         = "eu-west-1c"
-    cidr_block = "10.10.5.0/24"
-    suffix     = "c"
-  }
+common_tags = {
+  "Project" = "epam-tf-lab"
+  "ID"      = "cmtr-sghaq6oo"
 }
