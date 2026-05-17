@@ -1,11 +1,7 @@
-aws_region      = "eu-west-1"
-resource_prefix = "cmtr-sghaq6oo"
-vpc_name        = "cmtr-sghaq6oo-vpc"
-security_group  = "cmtr-sghaq6oo-sg"
-instane_type    = "t2.micro"
-ami_id          = "ami-0c13c2049f369d641"
+aws_region = "eu-west-1"
+
+s3_bucket_name = "cmtr-sghaq6oo-bucket-1779023129"
 
 common_tags = {
-  "Project" = "epam-tf-lab"
-  "ID"      = "cmtr-sghaq6oo"
+  "Project" = "cmtr-sghaq6oo"
 }

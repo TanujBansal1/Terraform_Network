@@ -1,24 +1,19 @@
-output "key_pair_name" {
-  description = "Key pair name"
-  value       = aws_key_pair.name.key_name
+output "Bucket_id" {
+  description = "Id of S3 bucket"
+  value       = aws_s3_bucket.bucket_storage.id
 }
 
-output "instance_id" {
-  description = "Instance ID"
-  value       = aws_instance.aws_instance.id
+output "bucket_arn" {
+  description = "ARN of S3 bucket"
+  value       = aws_s3_bucket.bucket_storage.arn
 }
 
-output "instance_public_ip" {
-  description = "Public IP of instance"
-  value       = aws_instance.aws_instance.public_ip
+output "bucket_region" {
+  description = "Region in which bucket is placed"
+  value       = aws_s3_bucket.bucket_storage.region
 }
 
-output "instance_public_dns" {
-  description = "The public DNS name of instance"
-  value       = aws_instance.aws_instance.public_dns
-}
-
-output "ssh_connection_command" {
-  description = "SSH connection command"
-  value       = "ssh -i ~/.ssh/id_rsa ec2-user@${aws_instance.aws_instance.public_ip}"
+output "bucket_domain_name" {
+  description = "Domain name of Bucket"
+  value       = aws_s3_bucket.bucket_storage.bucket_domain_name
 }
