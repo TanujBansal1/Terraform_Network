@@ -1,39 +1,24 @@
-output "iam_group_name" {
-  description = "IAM group name"
-  value       = aws_iam_group.group.name
+output "ssh_security_group_id" {
+  description = "ID of the SSH security group"
+  value       = aws_security_group.ssh_security_group.id
 }
 
-output "iam_group_arn" {
-  description = "IAM Group ARN"
-  value       = aws_iam_group.group.arn
+output "public_http_security_group_id" {
+  description = "ID of the public HTTP security group"
+  value       = aws_security_group.public_http.id
 }
 
-output "iam_policy_name" {
-  description = "IAM policy name"
-  value       = aws_iam_policy.name.name
+output "private_http_security_group_id" {
+  description = "ID of the private HTTP security group"
+  value       = aws_security_group.private_http.id
 }
 
-output "iam_policy_arn" {
-  description = "IAM Policy ARN"
-  value       = aws_iam_policy.name.arn
+output "public_instance_public_ip" {
+  description = "Public IP address of the public EC2 instance"
+  value       = data.aws_instance.public_instance.public_ip
 }
 
-output "iam_role_name" {
-  description = "Name of the created IAM role"
-  value       = aws_iam_role.iam_role.name
-}
-
-output "iam_role_arn" {
-  description = "ARN of the created IAM role"
-  value       = aws_iam_role.iam_role.arn
-}
-
-output "iam_instance_profile_name" {
-  description = "Name of the created IAM instance profile"
-  value       = aws_iam_instance_profile.name.name
-}
-
-output "iam_instance_profile_arn" {
-  description = "ARN of the created IAM instance profile"
-  value       = aws_iam_instance_profile.name.arn
+output "private_instance_private_ip" {
+  description = "Private IP address of the private EC2 instance"
+  value       = data.aws_instance.private_instance.private_ip
 }

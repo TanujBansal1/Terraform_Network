@@ -1,40 +1,44 @@
 variable "aws_region" {
-  description = "Region in which resources are to be created"
+  description = "AWS Region"
   type        = string
 }
 
-variable "bucket_name" {
-  description = "S3 bucket name"
+variable "vpc_id" {
+  description = "VPC id"
   type        = string
 }
 
-variable "policy_file" {
-  description = "Policy file name"
+variable "public_instance_id" {
+  description = "Public Instance Id"
   type        = string
 }
 
-variable "common_tag" {
-  description = "Common tags for resources"
+variable "private_instance_id" {
+  description = "Private instance id"
+  type        = string
+}
+
+variable "ssh_security_group_name" {
+  description = "SSH Security Group name"
+  type        = string
+}
+
+variable "public_http_security_group_name" {
+  description = "Public security group name"
+  type        = string
+}
+
+variable "private_http_security_group_name" {
+  description = "Private security group name"
+  type        = string
+}
+
+variable "allowed_ip_range" {
+  description = "Allowed IP Ranges"
+  type        = list(string)
+}
+
+variable "common_tags" {
+  description = "Common tags for all resources"
   type        = map(string)
 }
-
-variable "iam_group_name" {
-  description = "IAM group name"
-  type        = string
-}
-
-variable "iam_role_name" {
-  description = "IAM role name"
-  type        = string
-}
-
-variable "iam_policy_name" {
-  description = "IAM Policy Name"
-  type        = string
-}
-
-variable "iam_instance_profile_name" {
-  description = "IAM instance profile name"
-  type        = string
-}
-
