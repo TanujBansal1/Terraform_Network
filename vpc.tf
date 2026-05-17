@@ -1,7 +1,7 @@
 locals {
-  vpc_name = "$(var.resource_prefix)-vpc"
-  igw_name = "$(var.resource_prefix)-igw"
-  rt_name  = "$(var.resource_prefix)-rt"
+  vpc_name = "${var.resource_prefix}-vpc"
+  igw_name = "${var.resource_prefix}-igw"
+  rt_name  = "${var.resource_prefix}-rt"
 }
 
 resource "aws_vpc" "this" {
@@ -21,7 +21,7 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "$(var.resource_prefix)-subnet-public-$(each.key)"
+    Name = "${var.resource_prefix}-subnet-public-${each.key}"
   }
 }
 
