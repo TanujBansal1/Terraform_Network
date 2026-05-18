@@ -1,33 +1,30 @@
 variable "aws_region" {
-  description = "Region of resources"
+  description = "Region of Resources"
   type        = string
 }
 
-variable "vpc_name" {
-  description = "Name of VPC"
+variable "project_id" {
+  description = "Common project id"
   type        = string
 }
 
-variable "vpc_cidr" {
-  description = "CIDR block of VPC"
+variable "state_bucket" {
+  description = "Remote bucket url"
   type        = string
 }
 
-variable "public_subnets" {
-  description = "Public Subnet Name, AZ and CIDR blocks"
-  type = map(object({
-    name       = string
-    az         = string
-    cidr_block = string
-  }))
-}
-
-variable "internet_gateway_name" {
-  description = "Name of internet gateway"
+variable "state_key" {
+  description = "Path to the state file in bucket"
   type        = string
 }
 
-variable "route_table_name" {
-  description = "Name of route table"
+variable "ami_id" {
+  description = "AMI id for ec2 instance image"
   type        = string
 }
+
+variable "instance_type" {
+  description = "Type of instance"
+  type        = string
+}
+
