@@ -1,24 +1,34 @@
-output "ssh_security_group_id" {
-  description = "ID of the SSH security group"
-  value       = aws_security_group.ssh_security_group.id
+output "vpc_id" {
+  description = "VPC ID"
+  value       = aws_vpc.vpc.id
 }
 
-output "public_http_security_group_id" {
-  description = "ID of the public HTTP security group"
-  value       = aws_security_group.public_http.id
+output "vpc_cidr" {
+  description = "CIDR block of VPC"
+  value       = aws_vpc.vpc.cidr_block
 }
 
-output "private_http_security_group_id" {
-  description = "ID of the private HTTP security group"
-  value       = aws_security_group.private_http.id
+output "public_subnet_ids" {
+  description = "IDs of all public subnets"
+  value       = [for s in aws_subnet.public_subnets : s.id]
 }
 
-output "public_instance_public_ip" {
-  description = "Public IP address of the public EC2 instance"
-  value       = data.aws_instance.public_instance.public_ip
+output "public_subnet_cidr_block" {
+  description = "CIDR blocks of public subnets"
+  value       = [for s in aws_subnet.public_subnets : s.cidr_block]
 }
 
-output "private_instance_private_ip" {
-  description = "Private IP address of the private EC2 instance"
-  value       = data.aws_instance.private_instance.private_ip
+output "public_subnet_availability_zone" {
+  description = "AZ of public subnets"
+  value       = [for s in aws_subnet.public_subnets : s.availability_zone]
+}
+
+output "internet_gateway_id" {
+  description = "Internet gateway ID"
+  value       = aws_internet_gateway.igw.id
+}
+
+output "routing_table_id" {
+  description = "Routing Table ID"
+  value       = aws_route_table.route_table.id
 }

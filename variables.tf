@@ -1,44 +1,33 @@
 variable "aws_region" {
-  description = "AWS Region"
+  description = "Region of resources"
   type        = string
 }
 
-variable "vpc_id" {
-  description = "VPC id"
+variable "vpc_name" {
+  description = "Name of VPC"
   type        = string
 }
 
-variable "public_instance_id" {
-  description = "Public Instance Id"
+variable "vpc_cidr" {
+  description = "CIDR block of VPC"
   type        = string
 }
 
-variable "private_instance_id" {
-  description = "Private instance id"
+variable "public_subnets" {
+  description = "Public Subnet Name, AZ and CIDR blocks"
+  type = map(object({
+    name       = string
+    az         = string
+    cidr_block = string
+  }))
+}
+
+variable "internet_gateway_name" {
+  description = "Name of internet gateway"
   type        = string
 }
 
-variable "ssh_security_group_name" {
-  description = "SSH Security Group name"
+variable "route_table_name" {
+  description = "Name of route table"
   type        = string
-}
-
-variable "public_http_security_group_name" {
-  description = "Public security group name"
-  type        = string
-}
-
-variable "private_http_security_group_name" {
-  description = "Private security group name"
-  type        = string
-}
-
-variable "allowed_ip_range" {
-  description = "Allowed IP Ranges"
-  type        = list(string)
-}
-
-variable "common_tags" {
-  description = "Common tags for all resources"
-  type        = map(string)
 }
