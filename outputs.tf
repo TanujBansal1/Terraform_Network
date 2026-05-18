@@ -1,19 +1,29 @@
-output "instance_id" {
-  description = "ID of the created EC2 instance"
-  value       = aws_instance.ec2_instance.id
+output "load_balancer_dns" {
+  description = "DNS name of the Application Load Balancer (open this in a browser)"
+  value       = aws_lb.this.dns_name
 }
 
-output "instance_public_ip" {
-  description = "Public IP address of the EC2 instance"
-  value       = aws_instance.ec2_instance.public_ip
+output "load_balancer_arn" {
+  description = "ARN of the Application Load Balancer"
+  value       = aws_lb.this.arn
 }
 
-output "instance_subnet_id" {
-  description = "Subnet ID where the instance was launched (from remote state)"
-  value       = aws_instance.ec2_instance.subnet_id
+output "target_group_arn" {
+  description = "ARN of the load balancer target group"
+  value       = aws_lb_target_group.this.arn
 }
 
-output "remote_state_vpc_id" {
-  description = "VPC ID read from the remote state"
-  value       = data.terraform_remote_state.base_infra.outputs.vpc_id
+output "launch_template_id" {
+  description = "ID of the launch template"
+  value       = aws_launch_template.this.id
+}
+
+output "asg_name" {
+  description = "Name of the Auto Scaling Group"
+  value       = aws_autoscaling_group.this.name
+}
+
+output "ami_id_used" {
+  description = "AMI ID used by the launch template"
+  value       = data.aws_ami.amazon_linux_2023.id
 }
