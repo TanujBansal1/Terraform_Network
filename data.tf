@@ -5,43 +5,31 @@ data "aws_vpc" "selected" {
   }
 }
 
-data "aws_subnets" "public" {
+data "aws_subnet" "public_subnet" {
+  filter {
+    name   = "tag:Name"
+    values = [var.public_subnet_name]
+  }
+
   filter {
     name   = "vpc-id"
     values = [data.aws_vpc.selected.id]
   }
-
-  filter {
-    name   = "cidr-block"
-    values = ["10.0.1.0/24", "10.0.3.0/24"]
-  }
 }
 
-data "aws_security_group" "ec2_sg" {
+data "aws_security_group" "selected" {
   filter {
     name   = "tag:Name"
-    values = [var.ec2_sg_name]
+    values = [var.security_group_name]
   }
-  vpc_id = data.aws_vpc.selected.id
-}
 
-data "aws_security_group" "http_sg" {
   filter {
-    name   = "tag:Name"
-    values = [var.http_sg_name]
+    name   = "vpc-id"
+    values = [data.aws_vpc.selected.id]
   }
-  vpc_id = data.aws_vpc.selected.id
 }
 
-data "aws_security_group" "lb_sg" {
-  filter {
-    name   = "tag:Name"
-    values = [var.lb_sg_name]
-  }
-  vpc_id = data.aws_vpc.selected.id
-}
-
-data "aws_ami" "amazon_linux_2023" {
+data "aws_ami" "ami_id" {
   most_recent = true
   owners      = ["amazon"]
 
@@ -54,4 +42,15 @@ data "aws_ami" "amazon_linux_2023" {
     name   = "state"
     values = ["available"]
   }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
 }
+

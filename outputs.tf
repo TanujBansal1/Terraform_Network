@@ -1,29 +1,34 @@
-output "load_balancer_dns" {
-  description = "DNS name of the Application Load Balancer (open this in a browser)"
-  value       = aws_lb.this.dns_name
+output "instance_id" {
+  description = "ID of the created EC2 instance"
+  value       = aws_instance.this.id
 }
 
-output "load_balancer_arn" {
-  description = "ARN of the Application Load Balancer"
-  value       = aws_lb.this.arn
+output "instance_public_ip" {
+  description = "Public IP address of the EC2 instance"
+  value       = aws_instance.this.public_ip
 }
 
-output "target_group_arn" {
-  description = "ARN of the load balancer target group"
-  value       = aws_lb_target_group.this.arn
+output "instance_private_ip" {
+  description = "Private IP address of the EC2 instance"
+  value       = aws_instance.this.private_ip
 }
 
-output "launch_template_id" {
-  description = "ID of the launch template"
-  value       = aws_launch_template.this.id
+output "discovered_vpc_id" {
+  description = "VPC ID discovered via data source"
+  value       = data.aws_vpc.selected.id
 }
 
-output "asg_name" {
-  description = "Name of the Auto Scaling Group"
-  value       = aws_autoscaling_group.this.name
+output "discovered_subnet_id" {
+  description = "Public subnet ID discovered via data source"
+  value       = data.aws_subnet.public_subnet.id
 }
 
-output "ami_id_used" {
-  description = "AMI ID used by the launch template"
-  value       = data.aws_ami.amazon_linux_2023.id
+output "discovered_security_group_id" {
+  description = "Security group ID discovered via data source"
+  value       = data.aws_security_group.selected.id
+}
+
+output "discovered_ami_id" {
+  description = "Amazon Linux 2023 AMI ID discovered via data source"
+  value       = data.aws_ami.ami_id.id
 }
