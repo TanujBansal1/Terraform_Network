@@ -1,9 +1,14 @@
-variable "aws_region" {
-  description = "Name of AWS Region"
+variable "region" {
+  description = "AWS region for resources"
   type        = string
 }
 
 variable "policy_name" {
-  description = "Name of IAM policy"
+  description = "Name of the IAM policy"
+  type        = string
+}
+
+variable "policy_description" {
+  description = "Description of the IAM policy"
   type        = string
 }
