@@ -4,6 +4,11 @@ variable "aws_region" {
 }
 
 variable "policy_name" {
-  description = "Name of IAM policy"
+  description = "Name of the IAM policy"
+  type        = string
+}
+
+variable "policy_description" {
+  description = "Description of the IAM policy"
   type        = string
 }
