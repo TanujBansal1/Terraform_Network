@@ -5,10 +5,11 @@ terraform {
       version = ">= 3.0"
     }
   }
+  required_version = ">= 1.5.7"
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region = "eu-west-1"
 }
 
 
