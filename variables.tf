@@ -38,6 +38,11 @@ variable "http_sg_name" {
   description = "Name of HTTP Security Group"
 }
 
+variable "lb_sg_name" {
+  type        = string
+  description = "Name of LB security Group"
+}
+
 variable "instance_type" {
   type        = string
   description = "Type of instance"

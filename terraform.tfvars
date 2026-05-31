@@ -5,6 +5,7 @@ public_subnet1_name = "cmtr-sghaq6oo-public-subnet1"
 public_subnet2_name = "cmtr-sghaq6oo-public-subnet2"
 ssh_sg_name         = "cmtr-sghaq6oo-sg-ssh"
 http_sg_name        = "cmtr-sghaq6oo-sg-http"
+lb_sg_name          = "cmtr-sghaq6oo-sg-lb"
 
 blue_weight  = 100
 green_weight = 0
