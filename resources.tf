@@ -1,5 +1,5 @@
 resource "aws_lb" "load_balancer" {
-  name               = "cmtr-sghaq6oo-lb"
+  name               = local.lb_name
   internal           = false
   load_balancer_type = "application"
   security_groups    = [data.aws_security_group.lb_sg.id]
