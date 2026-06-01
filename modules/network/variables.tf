@@ -1,9 +1,3 @@
-variable "aws_region" {
-  description = "AWS region where all resources are created."
-  type        = string
-}
-
-# Network variables
 variable "vpc_name" {
   description = "Name of the VPC."
   type        = string
@@ -66,47 +60,5 @@ variable "internet_gateway" {
 
 variable "routing_table" {
   description = "Name of the route table for public subnets."
-  type        = string
-}
-
-# Network security variables
-variable "ssh_security_group_name" {
-  description = "Name of the SSH security group."
-  type        = string
-}
-
-variable "public_http_security_group_name" {
-  description = "Name of the public HTTP security group."
-  type        = string
-}
-
-variable "private_http_security_group_name" {
-  description = "Name of the private HTTP security group."
-  type        = string
-}
-
-variable "allowed_ip_range" {
-  description = "List of allowed CIDR ranges for SSH and HTTP ingress."
-  type        = list(string)
-}
-
-# Application variables
-variable "aws_launch_template_name" {
-  description = "Name of the launch template."
-  type        = string
-}
-
-variable "aws_asg_name" {
-  description = "Name of the Auto Scaling group."
-  type        = string
-}
-
-variable "load_balancer" {
-  description = "Name of the Application Load Balancer."
-  type        = string
-}
-
-variable "instance_type" {
-  description = "EC2 instance type for the launch template."
   type        = string
 }
